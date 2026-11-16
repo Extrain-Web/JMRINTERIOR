@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #30373e;
+  --color-ink-deep: #22282d;
+  --color-gold: #daa14c;
+  --color-gold-dark: #c28a35;
+  --color-mist: #f5f5f5;
+  --color-cloud: #ededed;
+  --color-body: #535353;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1280px;
+  padding-inline: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep anchored sections clear of the sticky header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Subtle architectural blueprint grid used on dark panels */
+.bg-blueprint {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Outlined step numerals */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #d9d9d9;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll-reveal without JS: only in browsers that support scroll-driven animations */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .animate-fade-up {
+    animation: none;
+  }
+}
