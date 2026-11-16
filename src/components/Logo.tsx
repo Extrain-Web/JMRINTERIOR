@@ -1,20 +1,25 @@
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
-      <svg width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <path
           d="M20 3 36 12v16L20 37 4 28V12z"
           stroke="#daa14c"
           strokeWidth="2.5"
           strokeLinejoin="round"
         />
-        <path
-          d="M13 26V15l7 6 7-6v11"
-          stroke="#daa14c"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <text
+          x="20"
+          y="24.3"
+          textAnchor="middle"
+          fontSize="11.5"
+          fontWeight="800"
+          letterSpacing="0.2"
+          fill="#daa14c"
+          style={{ fontFamily: "var(--font-jakarta), ui-sans-serif, system-ui, sans-serif" }}
+        >
+          JMR
+        </text>
       </svg>
       <span className="leading-none">
         <span
